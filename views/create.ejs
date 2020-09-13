@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-	<%- include('layouts/head');-%>
+	<head>
+		<%- include('layouts/head');-%>
+		<title>Compose</title>
+	</head>
 	<!-- -->
 	<!-- body tag below -->
 	<!-- -->
 	<body>
-		<form>
+		<%- include('layouts/nav');-%>
+		<form action="/posts/new" method="POST">
 			<div class="form-group">
 				<label for="formGroupExampleInput">Post title</label>
 				<input
@@ -13,6 +17,7 @@
 					class="form-control"
 					id="formGroupExampleInput"
 					placeholder="postTitle"
+					name="title"
 				/>
 			</div>
 			<div class="md-form">
@@ -21,8 +26,10 @@
 					id="form7"
 					class="md-textarea form-control"
 					rows="3"
+					name="body"
 				></textarea>
 			</div>
+			<button>Submit</button>
 		</form>
 		<%- include('layouts/script');-%>
 	</body>

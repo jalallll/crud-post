@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<%- include('layouts/head');-%>
-		<title>Compose</title>
+		<title>Register</title>
 	</head>
 	<!-- -->
 	<!-- body tag below -->
@@ -11,27 +11,29 @@
 		<%- include('layouts/nav');-%>
 		<br />
 		<div class="container">
-			<form action="/posts/new" method="POST">
+			<form action="/users/register" method="POST">
 				<div class="form-group">
-					<label for="formGroupExampleInput">Post title</label>
+					<label for="formGroupExampleInput">Username</label>
 					<input
 						type="text"
 						class="form-control"
-						id="title"
-						placeholder="postTitle"
-						name="title"
+						id="username"
+						placeholder="Username"
+						name="username"
 					/>
 				</div>
 				<div class="md-form">
-					<label for="inputText">Enter Post</label>
-					<textarea
-						id="body"
-						class="md-textarea form-control"
-						rows="3"
-						name="body"
-					></textarea>
+					<label for="inputText">Password</label>
+					<input
+						type="password"
+						class="form-control"
+						id="password"
+						placeholder="password"
+						name="password"
+					/>
 				</div>
-				<button>Submit</button>
+				<br />
+				<button>Login</button>
 			</form>
 		</div>
 

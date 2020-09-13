@@ -15,6 +15,9 @@
 			<div class="card-body">
 				<h5 class="card-title"><%= posts[i].title %></h5>
 				<p class="card-text"><%= posts[i].body %></p>
+				<div>
+					<a href="/posts/<%=posts[i]._id%>">See more</a>
+				</div>
 			</div>
 		</div>
 		<%}%>

@@ -11,14 +11,14 @@
 		<%- include('layouts/nav');-%>
 		<br />
 		<div class="container">
-			<form action="/posts/new" method="POST">
+			<form action="/posts/store" method="POST" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="formGroupExampleInput">Post title</label>
 					<input
 						type="text"
 						class="form-control"
 						id="title"
-						placeholder="postTitle"
+						placeholder="Title"
 						name="title"
 					/>
 				</div>
@@ -31,6 +31,11 @@
 						name="body"
 					></textarea>
 				</div>
+				<br />
+				<label>Upload Image</label>
+				<input type="file" id="image" name="image" />
+				<br />
+				<br />
 				<button>Submit</button>
 			</form>
 		</div>

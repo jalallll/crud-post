@@ -22,6 +22,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // importing database model
 const Post = require('./DB/Models/post');
 
+// image upload
+const fileUpload = require('express-fileupload');
+app.use(fileUpload());
+
 // look for static files in public directory
 app.use(express.static('public'));
 
@@ -39,9 +43,15 @@ app.get('/', async (req, res) => {
 app.get('/create', (req, res) => {
 	res.render('create');
 });
-app.post('/posts/new', async (req, res) => {
-	await Post.create(req.body);
-	res.redirect('/');
+app.post('/posts/store', (req, res) => {
+	req.files.image.mv(
+		path.resolve(__dirname, 'public/img', req.files.image.name),
+		async (error) => {
+			await Post.create(req.body);
+			res.redirect('/');
+			if (error) console.log(error);
+		}
+	);
 });
 app.get('/register', (req, res) => {
 	res.render('register');

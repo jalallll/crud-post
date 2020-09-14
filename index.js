@@ -47,7 +47,7 @@ app.post('/posts/store', (req, res) => {
 	req.files.image.mv(
 		path.resolve(__dirname, 'public/img', req.files.image.name),
 		async (error) => {
-			await Post.create(req.body);
+			await Post.create({ image: '/img/' + image.name, ...req.body });
 			res.redirect('/');
 			if (error) console.log(error);
 		}

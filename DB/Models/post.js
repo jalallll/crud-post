@@ -8,6 +8,7 @@ const post = new mongoose.Schema({
 		type: Date,
 		default: new Date(),
 	},
+	image: String,
 });
 
 module.exports = Post = mongoose.model('post', post);
